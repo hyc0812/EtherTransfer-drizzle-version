@@ -30,7 +30,7 @@ contract Payable {
     }
 
     function balOwner() public view returns (uint) {
-        return address(owner).balance / 1e18;
+        return address(owner).balance;
     }
 
     function withdraw() public {

@@ -19,10 +19,7 @@ export default ({ drizzle, drizzleState }) => {
       <div className="section">
         <h2>Ether Transfer</h2>
         <p>
-          Please input an uint value:
-        </p>
-        <p>
-          <strong>Contract Owner account: </strong>
+          <strong>Contract Owner: </strong>
           </p>
           <p>
           <ContractData
@@ -30,20 +27,56 @@ export default ({ drizzle, drizzleState }) => {
             drizzleState={drizzleState}
             contract="Payable"
             method="owner"
-
           />
         </p>
 
+        <p>
+          <strong>Contract Address: </strong>
+          <p>
+          <ContractData
+            drizzle={drizzle}
+            drizzleState={drizzleState}
+            contract="Payable"
+            method="getConAddr"
+          /> 
+          </p>
+        </p>
+
+
+        <p>
+          <strong>Contract balance: </strong>
+          <ContractData
+            drizzle={drizzle}
+            drizzleState={drizzleState}
+            contract="Payable"
+            method="balContract"
+            /><weak>  ETH </weak>
+        </p>
+
+        <p>
+          <strong>Owner Withdraw totally from contract: </strong>
+          <ContractForm
+            drizzle={drizzle}
+            drizzleState={drizzleState}
+            contract="Payable"
+            method="withdraw"
+          />
+        </p>
+
+
+        <p>
+          <strong>Transfer from Contract to: </strong>
+          <ContractForm
+            drizzle={drizzle}
+            drizzleState={drizzleState}
+            contract="Payable"
+            method="transfer"
+          />
+        </p>
       </div>
 
-
-
-
-
-
-
       <div className="section">
-        <h2>My Account Address</h2>
+        <h2>Owner Balance</h2>
         <AccountData
           drizzle={drizzle}
           drizzleState={drizzleState}
@@ -52,27 +85,6 @@ export default ({ drizzle, drizzleState }) => {
           precision={3}
         />
       </div>
-
-      <div className="section">
-        <h2>SimpleStorage</h2>
-        <p>
-          Please input an uint value:
-        </p>
-        <p>
-          <strong>Stored Value: </strong>
-          <ContractData
-            drizzle={drizzle}
-            drizzleState={drizzleState}
-            contract="SimpleStorage"
-            method="storedData"
-          />
-        </p>
-        <ContractForm drizzle={drizzle} contract="SimpleStorage" method="set" />
-      </div>
-
-
-
-
     </div>
   );
 };
