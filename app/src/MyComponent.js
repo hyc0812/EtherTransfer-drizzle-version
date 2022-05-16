@@ -76,7 +76,7 @@ export default ({ drizzle, drizzleState }) => {
       </div>
 
       <div className="section">
-        <h2>Owner Balance</h2>
+        <h2>Account:</h2>
         <AccountData
           drizzle={drizzle}
           drizzleState={drizzleState}
