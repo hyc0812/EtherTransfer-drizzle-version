@@ -1,4 +1,4 @@
-# drizzle-test
+# EtherTransfer-drizzle-version
 
 > This is a dApp created by drizzle box. It mainly contains two parts: Truffle project and React project.
 
@@ -15,13 +15,14 @@ npm install --save @openzeppelin/contracts
 truffle compile
 ```
 > It should compile all the smart contract.
+
 > Use `sudo truffle compile` to download and update the solc version.
 
 Open ganache UI, config the `RPC SERVER:HTTP://127.0.0.1:8545` and add our project by selecting the `truffle-config.js`, then click `Restart`. 
 
 Next step run the following command:
 ```linux
-truffle migrate --network develop
+sudo truffle migrate --network develop
 ```
 By running this, the smart contracts in this project were deployed to the blockchain.
 
