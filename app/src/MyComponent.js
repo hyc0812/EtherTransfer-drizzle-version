@@ -17,6 +17,32 @@ export default ({ drizzle, drizzleState }) => {
       </div>
 
       <div className="section">
+        <h2>Ether Transfer</h2>
+        <p>
+          Please input an uint value:
+        </p>
+        <p>
+          <strong>Contract Owner account: </strong>
+          </p>
+          <p>
+          <ContractData
+            drizzle={drizzle}
+            drizzleState={drizzleState}
+            contract="Payable"
+            method="owner"
+
+          />
+        </p>
+
+      </div>
+
+
+
+
+
+
+
+      <div className="section">
         <h2>My Account Address</h2>
         <AccountData
           drizzle={drizzle}
@@ -43,6 +69,9 @@ export default ({ drizzle, drizzleState }) => {
         </p>
         <ContractForm drizzle={drizzle} contract="SimpleStorage" method="set" />
       </div>
+
+
+
 
     </div>
   );
