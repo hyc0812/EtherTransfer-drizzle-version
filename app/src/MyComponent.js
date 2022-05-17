@@ -17,9 +17,19 @@ export default ({ drizzle, drizzleState }) => {
       </div>
 
       <div className="section">
-        <h2>Ether Transfer</h2>
+        <h2>ETH Transfer Management</h2>
+
+        <h3>My Account:</h3>
+        <AccountData
+          drizzle={drizzle}
+          drizzleState={drizzleState}
+          accountIndex={0}
+          units="ether"
+          precision={3}
+        />
+
         <p>
-          <strong>Contract Owner: </strong>
+          <h3>Contract Ownership: </h3>
           </p>
           <p>
           <ContractData
@@ -31,7 +41,7 @@ export default ({ drizzle, drizzleState }) => {
         </p>
 
         <p>
-          <strong>Contract Address: </strong>
+          <h3>Contract Address: </h3>
           <p>
           <ContractData
             drizzle={drizzle}
@@ -53,19 +63,10 @@ export default ({ drizzle, drizzleState }) => {
             /><weak>  ETH </weak>
         </p>
 
+        <div className="section">
+        <h2>Only-Owner Operation</h2>
         <p>
-          <strong>Owner Withdraw totally from contract: </strong>
-          <ContractForm
-            drizzle={drizzle}
-            drizzleState={drizzleState}
-            contract="Payable"
-            method="withdraw"
-          />
-        </p>
-
-
-        <p>
-          <strong>Transfer from Contract to: </strong>
+          <strong>Transfer from Contract to (only owner): </strong>
           <ContractForm
             drizzle={drizzle}
             drizzleState={drizzleState}
@@ -73,17 +74,24 @@ export default ({ drizzle, drizzleState }) => {
             method="transfer"
           />
         </p>
-      </div>
 
-      <div className="section">
-        <h2>Account:</h2>
-        <AccountData
+        <p>
+          <strong>Withdraw ALL ETH (only owner): </strong>
+          <ContractForm
+            drizzle={drizzle}
+            drizzleState={drizzleState}
+            contract="Payable"
+            method="withdraw"
+          />
+        </p>
+        <strong>Set contract Ownership (only owner):</strong>
+        <ContractForm
           drizzle={drizzle}
           drizzleState={drizzleState}
-          accountIndex={0}
-          units="ether"
-          precision={3}
+          contract="Payable"
+          method="setOwner"
         />
+      </div>
       </div>
     </div>
   );

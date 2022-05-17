@@ -7,6 +7,13 @@ contract Payable {
     constructor() payable {
         owner = payable(msg.sender);
     }
+
+    // access control 
+    modifier onlyOwner() {
+        require(msg.sender == owner, "not owner");
+        _;
+    }
+    
     // Function to deposit Ether into this contract.
     // Call this function along with some Ether.
     // The balance of this contract will be automatically updated.
@@ -33,7 +40,7 @@ contract Payable {
         return address(owner).balance;
     }
 
-    function withdraw() public {
+    function withdraw() public onlyOwner{
         // get the amount of Ether stored in this contract
         uint amount = address(this).balance;
 
@@ -44,7 +51,7 @@ contract Payable {
     }
 
     // Function to transfer Ether from this contract to address from input
-    function transfer(address payable _to, uint _amount) public {
+    function transfer(address payable _to, uint _amount) public onlyOwner{
         // Note that "to" is declared as payable
         (bool success, ) = _to.call{value: _amount * 1e18}("");
         require(success, "Failed to send Ether");
@@ -52,5 +59,11 @@ contract Payable {
 
     function getConAddr() public view returns (address) {
         return address(this);
+    }
+
+    // set ownership of the contract
+    function setOwner(address payable _newOwner) external onlyOwner {
+        require(_newOwner != address(0), "invalid address");
+        owner = _newOwner;
     }
 }
