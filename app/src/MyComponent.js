@@ -20,13 +20,14 @@ export default ({ drizzle, drizzleState }) => {
         <h2>ETH Transfer Management</h2>
 
         <h3>My Account:</h3>
+        <p>
         <AccountData
           drizzle={drizzle}
           drizzleState={drizzleState}
           accountIndex={0}
           units="ether"
           precision={3}
-        />
+        /></p>
 
         <p>
           <h3>Contract Ownership: </h3>
