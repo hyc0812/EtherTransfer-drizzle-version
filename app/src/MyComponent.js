@@ -54,13 +54,15 @@ export default ({ drizzle, drizzleState }) => {
 
 
         <p>
-          <strong>Contract balance: </strong>
+          <strong>Contract balance:&nbsp;&nbsp;</strong>
+          <strong>
           <ContractData
             drizzle={drizzle}
             drizzleState={drizzleState}
             contract="Payable"
             method="balContract"
-            /><weak>  ETH </weak>
+            /></strong>
+            <weak>  &nbsp;&nbsp;ETH </weak>
         </p>
 
         <div className="section">
